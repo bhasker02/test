@@ -10,7 +10,7 @@ let newsaccordion = document.getElementById('newsaccordion');
 let slideshow = document.getElementById('slideshow');
 // Create an ajax get request
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "https://free-news.p.rapidapi.com/v1/search?q=Elon%20Musk&lang=en");
+xhr.open("GET", "https://free-news.p.rapidapi.com/v1/search?q=business&lang=en");
 xhr.setRequestHeader("X-RapidAPI-Key", "184f13f6c3msh81ae48e298919a3p16bc7ejsna4a53e091038");
 xhr.setRequestHeader("X-RapidAPI-Host", "free-news.p.rapidapi.com");
 
@@ -58,11 +58,13 @@ document.getElementById("mybutton").onclick = function (event){
     event.preventDefault()
     var search=document.getElementById("userInput").value;
     count= 1;
-    console.log(search)
+    console.log(search) 
         // Create an ajax get request
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://newsapi.org/v2/everything?q=bitcoin&apiKey=ea73dbae30834a38baab3c9ec0224140`, true);
-    
+    xhr.open('GET', `https://free-news.p.rapidapi.com/v1/search?q=${search}&lang=en`);
+    xhr.setRequestHeader("X-RapidAPI-Key", "184f13f6c3msh81ae48e298919a3p16bc7ejsna4a53e091038");
+    xhr.setRequestHeader("X-RapidAPI-Host", "free-news.p.rapidapi.com");
+
     // What to do when response is ready
     xhr.onload = function () {
         if (this.status === 200) {
